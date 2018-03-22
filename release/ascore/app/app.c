@@ -53,10 +53,16 @@ uint8_t xcpSimMTAMemory[32];
 extern struct process protoDemoProductProc;
 extern struct process protoDemoConsumerProc;
 #endif
+#if defined(USE_UIP)
+extern struct process protoUIPMain;
+#endif
 struct process * const autostart_processes[] = {
 #if defined(PROTOTHREAD_TEST)
 	&protoDemoProductProc,
 	&protoDemoConsumerProc,
+#endif
+#if defined(USE_UIP)
+	&protoUIPMain,
 #endif
 	NULL
 };
